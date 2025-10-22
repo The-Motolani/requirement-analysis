@@ -20,7 +20,7 @@ Requirements Analysis is a vital stage in the Software Development Lifecycle (SD
 
 ## Key Activities in Requirement Analysis.
 
-### - Requirement Gathering 🗂️
+- ### Requirement Gathering 🗂️
 
 The process of collecting information from stakeholders to understand their needs and expectations.
 
