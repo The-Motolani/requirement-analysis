@@ -34,7 +34,7 @@ The process of collecting information from stakeholders to understand their need
 
 - **Document Analysis**: Review existing documentation, reports, or system specifications to identify current functionalities and gaps.
 
-### - Requirement Elicitation ✍️
+- ### Requirement Elicitation ✍️
 
 The process of extracting, clarifying, and refining requirements through active engagement with stakeholders.
 
@@ -44,7 +44,7 @@ The process of extracting, clarifying, and refining requirements through active 
 
 - **Prototyping**: Develop mockups or prototypes to help stakeholders visualize the system and refine expectations.
 
-### + Requirement Documentation 📚
+- ### Requirement Documentation 📚
 
 The formal recording of gathered and elicited requirements for clear communication and reference.
 
@@ -54,7 +54,7 @@ The formal recording of gathered and elicited requirements for clear communicati
 
 - **Use Cases**: Develop use case diagrams to illustrate how users will interact with the system.
 
-### - Requirement Analysis and Modeling 📊
+- ### Requirement Analysis and Modeling 📊
 
 The process of examining, prioritizing, and representing requirements to ensure feasibility and alignment.
 
@@ -64,7 +64,7 @@ The process of examining, prioritizing, and representing requirements to ensure 
 
 - **Modeling**: Use visual models such as Data Flow Diagrams (DFDs) or Entity-Relationship Diagrams (ERDs) to analyze system behavior and relationships.
 
-### - Requirement Validation ✅
+- ### Requirement Validation ✅
 
 The process of confirming that the documented requirements accurately reflect stakeholder intentions.
 
@@ -113,3 +113,122 @@ Non-functional requirements describe how the system must perform — the quality
 + Security: The system must protect sensitive user and payment data (encryption in transit/at rest), ensure authentication/authorization for host- and user-operations.
 
 + Usability: The user interface (both web and mobile) should be intuitive, enabling users to complete bookings with minimal friction.
+
+## Use Case Diagrams
+
+A Use Case Diagram is a type of diagram in the Unified Modeling Language (UML) that visually illustrates the interactions between actors (users or other external systems) and the system under consideration. 
+
+**Key elements include:**
+
+- **Actors:** Entities external to the system (users, other systems) that initiate or are affected by interactions. 
+
+- **Use Cases:** Represent specific goals or tasks that the system performs in response to an actor’s actions.
+
+- **System Boundary:** Defines what is inside the system (in scope) versus what is external. 
+
+- **Relationships:** Include, extend, and generalization relationships help model reusable behaviours or alternative flows.
+
+### Benefits of Use Case Diagrams
+
+Here are some of the main advantages of using use case diagrams in software development and requirements engineering:
+
+#### Improved Communication & Shared Understanding
+
+Use case diagrams provide a visual representation that is easier for non-technical stakeholders (like business users, product owners) to understand. They create a shared “language” between business, analysts, and developers. 
+
+#### Clarifies System Scope and Interactions
+
+By explicitly showing actors and system boundaries, they help teams understand what the system will do, and what lies outside its scope. This helps set clear expectations, reduce ambiguity, and avoid scope creep. 
+
+#### Supports Requirements Gathering and Analysis
+
+Use case diagrams help identify and organize functional requirements by showing how users interact with the system and what goals they have. This helps find missing requirements, overlaps, or inconsistencies early. 
+
+#### Foundation for Design, Testing & Validation
+
+- They offer input for system design: helping designers and architects understand user interactions and plan system behavior. 
+
+- They also aid in deriving test cases: from each use case you can generate scenarios to verify the system meets its requirements.
+
+#### Helps Manage Complexity and Reuse
+
+Especially in larger systems, use case diagrams help break down the system into manageable parts. Also, relationships like “include” allow reuse of common functionalities across use cases.
+
+## Acceptance Criteria
+Acceptance criteria are the specific conditions that a feature (or user story) must meet in order to be accepted by stakeholders. They focus on the “what” needs to be done (outcome) rather than the “how”.
+
+### Importance of Acceptance Criteria In Requirement Analysis
+
+Including well-defined acceptance criteria brings several advantages:
+
+- Ensures shared understanding. Stakeholders, developers and testers all see the same conditions for when a feature is complete — reducing misunderstandings. 
+
+- Provides explicit basis for testing and validation. Since acceptance criteria are testable, they guide both development (what to build) and quality assurance (what to verify). 
+
+- Helps maintain quality and manage scope. By making what “done” means explicit, you reduce the chance of scope creep, incomplete features, and surprises. 
+
+- Improves efficiency. Clear criteria reduce ambiguity, which means fewer revisions, quicker development, fewer misunderstandings and rework. 
+
+- Aligns development with business value. Because they are defined from the user or stakeholder perspective they help ensure that what is built truly delivers the intended value.
+
+### Example
+
+**User Story:**
+As a registered guest, I want to complete payment and confirm my booking so that my reservation is secured and I receive confirmation.
+
+**Acceptance Criteria:**
+**Scenario: Successful booking checkout**
+
+- Given the guest is logged in and has selected a hotel, room type, check-in date, check-out date, and guest count
+
+- And the guest has entered valid payment information (e.g., credit card or supported payment method)
+
+- When the guest clicks the “Confirm Booking & Pay” button
+
+- Then the system processes the payment successfully
+
+- And the booking status changes to “Confirmed”
+
+- And an email (and/or push notification) is sent to the guest within 2 minutes containing the booking reference, hotel details, stay dates, price breakdown, and cancellation policy
+
+- And the booked room inventory is immediately updated to reflect the reservation so no double-booking occurs
+
+**Scenario: Payment failure handling**
+
+- Given the guest is logged in and at checkout but payment fails (e.g., card declined, funds insufficient)
+
+- When the payment attempt is made
+
+- Then the checkout page displays a clear error message (“Payment could not be processed – please try another method or card”)
+
+- And the booking status remains “Pending” (not confirmed)
+
+- And the guest remains on the checkout page with the option to retry payment or choose another payment method
+
+**Scenario: Checkout timeout / performance requirement (non-functional)**
+
+- Given the system is under normal load conditions
+
+- When the guest clicks “Confirm Booking & Pay”
+
+- Then the system displays a booking confirmation or payment error within 5 seconds
+
+- And the guest doesn’t see any time-out error or “session expired” message within that period
+
+**Scenario: Supported payment methods**
+
+- Given the guest is at the payment step
+
+- When the guest selects a payment method
+
+- Then the system supports at least the following methods: major credit/debit cards, and one local/regional payment method (e.g., mobile money or local bank transfer)
+
+- And the guest can complete payment using any of these methods without additional hurdles
+
+**Scenario: Data integrity and traceability**
+
+- Given the booking is completed (confirmed)
+
+- Then a traceability record is created linking the guest, booking, payment transaction ID, room inventory change and notification sent
+
+- And this record is accessible by the host/hotel manager in their dashboard and by the system admin for auditing.
