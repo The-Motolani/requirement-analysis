@@ -154,6 +154,10 @@ Use case diagrams help identify and organize functional requirements by showing 
 
 Especially in larger systems, use case diagrams help break down the system into manageable parts. Also, relationships like “include” allow reuse of common functionalities across use cases.
 
+##### Example of a Use Case Diagram
+![booking system use case diagram](https://github.com/The-Motolani/requirement-analysis/blob/main/alx-booking-uc.png)
+> - Source: [Creately](app.creately.com)
+
 ## Acceptance Criteria
 Acceptance criteria are the specific conditions that a feature (or user story) must meet in order to be accepted by stakeholders. They focus on the “what” needs to be done (outcome) rather than the “how”.
 
